@@ -9,7 +9,7 @@ function App() {
     const interval = setInterval(() => {
       fetchCryptoData()
       console.log("table has updated")
-  }, 30000) 
+  }, 5000) 
   return () => clearInterval(interval)},
   [cryptoData])
 
