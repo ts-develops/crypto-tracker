@@ -6,8 +6,12 @@ function App() {
   const [cryptoData, setcryptoData] = useState([])
   
   useEffect(() => {
-    fetchCryptoData()
-  }, [cryptoData])
+    const interval = setInterval(() => {
+      fetchCryptoData()
+      console.log("table has updated")
+  }, 30000) 
+  return () => clearInterval(interval)},
+  [cryptoData])
 
   const fetchCryptoData = async () => {
     const data = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd')
